@@ -3,13 +3,6 @@ def sum_of_multiples(limit, multiples):
         return 0
 
     return sum([
-        num for num in range(multiples[0], limit)
-        if is_multiple(num, multiples)
+        num for num in range(limit)
+        if any(not num % mul for mul in multiples)
     ])
-
-
-def is_multiple(num, multiples):
-    for mul in multiples:
-        if not num % mul:
-            return True
-    return False
